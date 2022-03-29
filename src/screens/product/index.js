@@ -18,4 +18,4 @@ const Products = ({ navigation, route }) => {
     )
 }
 
-export default Products
+export default connect()(Products)
