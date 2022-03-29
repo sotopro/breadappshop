@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { View, FlatList } from 'react-native'
 import { styles } from './styles'
 import { PRODUCTS } from '../../constants/products'
-import { useSelector, connect, useDispatch } from 'react-redux'
-
+import { useSelector, useDispatch, connect } from 'react-redux'
+import { filteredProducts, selectProduct } from '../../store/actions/product.action'
 
 import CategoryProducts from '../../components/molecules/category-products'
 
 const Category = ({ navigation, route }) => {
-    const { id } = route.params;
     const dispatch = useDispatch();
     const categoryProduct = useSelector(state => state.products.filteredProducts);
-    const selectedCategory = useSelector(state => state.category.selectedCategory);
-    // const selectedCategory = PRODUCTS.filter(product => product.category === id);
+    const selectedCategory = useSelector(state => state.categories.selectedCategory);
     const handleSelectCategory = (product) => {
-        navigation.navigate('Product', { product, name: product.name })
+        dispatch(selectProduct(product.id));
+        navigation.navigate('Product', { name: product.name })
     }
     const renderItem = ({ item }) => <CategoryProducts item={item} onSelected={handleSelectCategory} />
+
+    useEffect(() => {
+        dispatch(filteredProducts(selectedCategory.id));
+    }, [])
 
     return (
         <View style={styles.container}>
@@ -30,4 +33,4 @@ const Category = ({ navigation, route }) => {
     )
 }
 
-export default Category
+export default connect()(Category)
