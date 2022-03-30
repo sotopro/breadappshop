@@ -22,7 +22,7 @@ const Cart = ({ navigation }) => {
                 />
             </View>
             <View style={styles.footer}>
-                <Text style={styles.total}>Total</Text>
+                <Text style={styles.total}>Total:</Text>
                 <Text style={styles.totalPrice}>${total}</Text>
             </View>
         </View>

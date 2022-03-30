@@ -3,13 +3,13 @@ import { StyleSheet } from "react-native";
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginHorizontal: 20
     },
     header: {
         fontFamily: "OpenSans-Bold",
     },
     name: {
         fontSize: 20,
+        color: '#212121'
     },
     details: {
         flex: 1,
@@ -24,6 +24,7 @@ export const styles = StyleSheet.create({
     },
     price: {
         fontSize: 16,
-        fontFamily: 'OpenSans-Regular'
+        fontFamily: 'OpenSans-Regular',
+        color: '#212121'
     },
 });
