@@ -12,36 +12,39 @@ const TabStack = createBottomTabNavigator();
 const MainNavigator = () => {
     return (
         <TabStack.Navigator
-            initialRouteName='Shop'
+            initialRouteName='ShopStack'
             screenOptions={{
                 headerShown: false,
             }}
         >
             <TabStack.Screen
-                name='Shop'
+                name='ShopStack'
                 component={ShopNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <IonicIcons name={focused ? 'home' : 'home-outline' } size={20}  />
-                    )
+                    ),
+                    title: 'Shop',
                 }}
             />
             <TabStack.Screen
-                name='Cart'
+                name='CartStack'
                 component={CartNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <IonicIcons name={focused ? 'cart' : 'cart-outline' } size={20}  />
-                    )
+                    ),
+                    title: 'Cart',
                 }}
             />
             <TabStack.Screen
-                name='Order'
+                name='OrderStack'
                 component={OrderNavigator}
                 options={{
                     tabBarIcon: ({ focused }) => (
                         <IonicIcons name={focused ? 'list' : 'list-outline' } size={20}  />
-                    )
+                    ),
+                    title: 'Order',
                 }}
             />
         </TabStack.Navigator>
